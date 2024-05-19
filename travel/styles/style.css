@@ -1,0 +1,215 @@
+@import url(./constant.css);
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "poppins_medium";
+    list-style: none;
+    text-decoration: none;
+}
+.container {
+    max-width: 1200px;
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+}
+section{
+    width: 100%;
+    height: 100vh;
+    padding: var(--xx_large_distances) var(--small_distances);
+}
+.video_bg {
+    width: 100%;
+    height: 100vh;
+}
+header{
+    width: 100%;
+    height: 100px;
+    border: 1px solid var(--blue);
+    background-color: var(--blue_opacity);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 var(--x_large_distances);
+    border-radius: var(--medium_distances);
+	-webkit-backdrop-filter: blur(var(--small_distances));
+	backdrop-filter: blur(var(--small_distances));
+    z-index: 99 !important;
+}
+header ul{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+}
+header ul li a{
+    color: var(--light);
+}
+.logo{
+    width: 70px;
+    height: 70px;
+}
+.nav_toggler_into_context  , .nav_context_toggler{
+    display: none;
+}
+.video_bg{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -999 !important;
+}
+.video_bg video{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -11 !important;
+}
+.banner_context{
+    width: 100%;
+    height: 40vh;
+    margin-top: var(--xxx_large_distances);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    padding: var(--medium_distances);
+    gap: var(--small_distances);
+    color: white;
+    position: relative;
+}
+.banner_context h1 , .banner_context h2{
+    font-weight: 100;
+}
+.banner_context::before{
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 100%;
+    background: var(--blue_opacity);
+    filter: blur(var(--xxx_large_distances));
+    z-index: -1;
+}
+.banner_button button{
+    width: 200px;
+    height: 50px;
+    outline: none;
+    border-radius: var(--small_distances);
+    background-color: var(--yellow);
+    border: 1px solid var(--red);
+    color: var(--light);
+    font-size: var(--small_distances);
+    cursor: pointer;
+}
+.banner_title h1{
+    color: var(--yellow);
+    font-weight: bolder;
+    font-size: var(--xxx_large_font_size);
+}
+.video_controller{
+    width: 100%;
+    height: 70px;
+    margin-top: var(--medium_distances);
+}
+.controller_wrapper{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+    gap: 5px;
+}
+.play , .previos , .next{
+    width: 70px;
+    height: 70px;
+    border-radius: var(--x_small_distances);
+    border: 1px solid var(--light);
+    background-color: #ffffff70;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+	-webkit-backdrop-filter: blur(var(--xx_small_distances));
+	backdrop-filter: blur(var(--xx_small_distances));
+}
+.play > img , .previos > img, .next > img{
+    width: 40%;
+    height: 50%;
+    object-fit: cover;
+}
+.previos > img, .next > img{
+    width: 20%;
+    height: 50%;
+}
+.previos , .next{
+    height: 40px;
+}
+.full_info{
+    width: 100%;
+    height: 50px;
+    margin-top: var(--xxx_large_distances);
+}
+.info_wrapper{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.location , .network_box, .calling{
+    background-color: var(--blue_opacity);
+    border: 1px solid var(--blue);
+	-webkit-backdrop-filter: blur(var(--xx_small_distances));
+	backdrop-filter: blur(var(--xx_small_distances));
+    border-radius: var(--x_small_distances);
+}
+.location{
+    width: 250px;
+    height: 100%;
+    padding: var(--small_distances);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: white;
+}
+.networking {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+.network_box {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: var(--xx_small_distances);
+}
+.network_box img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+.calling{
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 var(--x_small_distances);
+    gap: 10px;
+}
+.calling > div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    color: var(--light);
+}
+.calling > div:last-child{
+    border-left: 2px solid var(--light);
+    padding-left: 10px;
+}

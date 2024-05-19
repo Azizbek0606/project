@@ -1,0 +1,30 @@
+@font-face {
+    font-family: "poppins_medium";
+    src: url(../fonts/poppins_medium.ttf);
+}
+:root{
+    --light:#fff;
+    --dark:#000;
+    --blue:#0F2C54;
+    --yellow:#EF6C00;
+    --red:#FF2004;
+    
+    --blue_opacity: #0f2c5470;
+    --yellow_opacity: #ef6c0070;
+
+    --small_font_size: 12px;
+    --medium_font_size: 14px;
+    --large_font_size: 16px;
+    --x_large_font_size: 20px;
+    --xx_large_font_size: 34px;
+    --xxx_large_font_size: 58px;
+    
+    --xx_small_distances: 5px;
+    --x_small_distances: 10px;
+    --small_distances: 15px;
+    --medium_distances: 20px;
+    --large_distances: 25px;
+    --x_large_distances: 30px;
+    --xx_large_distances: 40px;
+    --xxx_large_distances: 50px;
+}

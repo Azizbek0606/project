@@ -1,0 +1,49 @@
+@import url(./constant.css);
+@media screen and (max-width: 768px) {
+    .nav_content{
+        width: 0;
+        height: 0;
+        border-radius: var(--small_distances);
+        border: 1px solid var(--blue);
+        background-color: var(--blue_opacity);
+        position: absolute;
+        right: 10px;
+        top: 10px;
+        backdrop-filter: blur(var(--xx_small_distances));
+        overflow: hidden;
+        transition: 0.3s;
+    }
+    .nav_content ul{
+        flex-direction: column;
+        gap: 20px;
+    }
+    .nav_toggler_into_context{
+        display: block;
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        padding: var(--x_small_distances);
+        border-radius: var(--x_small_distances);
+        font-size: var(--xxx_large_font_size);
+        color: var(--light);
+        cursor: pointer;
+    }
+    .active_nav_context{
+        width: auto;
+        height: auto;
+        padding: var(--xx_large_distances);
+        -webkit-backdrop-filter: blur(var(--xx_small_distances));
+        backdrop-filter: blur(var(--xx_small_distances));
+    }
+    .nav_context_toggler{
+        display: block !important;
+        border: 1px solid var(--blue);
+        padding: var(--x_small_distances) var(--small_distances);
+        border-radius: var(--small_distances);
+        cursor: pointer;
+        color: var(--light);
+    }
+    header{
+        position: relative;
+    }
+}
