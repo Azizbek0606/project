@@ -95,6 +95,7 @@ header ul li a{
     height: 100%;
     background: var(--blue_opacity);
     filter: blur(var(--large_distances));
+    -webkit-filter: blur(var(--large_distances));
     z-index: -1;
 }
 .banner_button button{
