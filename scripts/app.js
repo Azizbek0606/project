@@ -2,66 +2,63 @@ let data_banner = {
     "dubai": {
         "title": "Dubai",
         "description": "Assalomu alakum biz bilan dubayga arzon narxlarda maroqli sayoxat qilishni istaysizmi unda darxol bizga murojat qiling",
-        "url": "../images/videos/dubai.mp4"
+        "url": "../images/banner_images/dubai.jpg",
+        "swip_color": '#E6E6FA70'
     },
     "misr": {
         "title": "Misr",
-        "description": "Assalomu alakum biz bilan dubayga arzon narxlarda maroqli sayoxat qilishni istaysizmi unda darxol bizga murojat qiling",
-        "url": "../images/videos/misr.mp4"
+        "description": "Assalomu alakum Misrga bilan dubayga arzon narxlarda maroqli sayoxat qilishni istaysizmi unda darxol bizga murojat qiling",
+        "url": "../images/banner_images/misr.jpg",
+        "swip_color": '#ef6c0070'
     },
     "antaliya": {
         "title": "Antaliya",
-        "description": "Assalomu alakum biz bilan dubayga arzon narxlarda maroqli sayoxat qilishni istaysizmi unda darxol bizga murojat qiling",
-        "url": "../images/videos/antalia.mp4"
+        "description": "Assalomu alakum biz bilan Antaliyaga arzon narxlarda maroqli sayoxat qilishni istaysizmi unda darxol bizga murojat qiling",
+        "url": "../images/banner_images/antaliya.jpg",
+        "swip_color": '#0F2C5470'
+    },
+    "balgariya": {
+        "title": "Bolgariya",
+        "description": "Assalomu alakum biz bilan Bolgariyaga arzon narxlarda maroqli sayoxat qilishni istaysizmi unda darxol bizga murojat qiling",
+        "url": "../images/banner_images/balgariya.jpg",
+        "swip_color": '#00808070'
     }
 }
 
-let home_video_bg_element = document.querySelector(".video_bg video");
+let banner_wrapper = document.querySelector(".banner_wrapper");
 let banner_title = document.querySelector(".banner_title h1");
 let banner_subtitle = document.querySelector(".banner_subtitle h2");
-let video_index = 0;
-let videos = Object.values(data_banner);
-let total_videos = videos.length;
+let bg_image_index = 0;
+let swip_anime = document.querySelector('.swip_anime');
 
-function playNextVideo() {
-    home_video_bg_element.src = videos[video_index].url;
-    banner_title.innerText = videos[video_index].title;
-    banner_subtitle.innerText = videos[video_index].description;
-    video_index = (video_index + 1) % total_videos;
-    home_video_bg_element.play();
-}
+function set_image_to_banner() {
+    let keys = Object.keys(data_banner);
+    let key = keys[bg_image_index];
+    let data_len = Object.keys(data_banner).length;
+    banner_wrapper.style.backgroundImage = `url(${data_banner[key].url})`;
+    banner_title.innerText = data_banner[key].title;
+    banner_subtitle.innerText = data_banner[key].description;
 
-function playPreviousVideo() {
-    if (video_index == 0) {
-        video_index = total_videos - 1;
+    swip_anime.style.backgroundColor = data_banner[key].swip_color;
+    if (swip_anime.dataset.state === "right") {
+        swip_anime.style.transform = `translateX(-100%)`;
+        swip_anime.dataset.state = "left";
+        swip_anime.style.clipPath = "polygon(100% 0%, 75% 50%, 100% 100%, 25% 100%, 0% 50%, 25% 0%)";
     } else {
-        video_index = (video_index - 1) % total_videos;
+        swip_anime.style.transform = `translateX(100%)`;
+        swip_anime.style.clipPath = "polygon(75% 0%, 100% 50%, 75% 100%, 0% 100%, 25% 50%, 0% 0%)";
+        swip_anime.dataset.state = "right";
     }
-    home_video_bg_element.src = videos[video_index].url;
-    banner_title.innerText = videos[video_index].title;
-    banner_subtitle.innerText = videos[video_index].description;
-    home_video_bg_element.play();
+
+    bg_image_index = (bg_image_index + 1) % data_len;
 }
 
-function playPauseVideo() {
-    if (home_video_bg_element.paused) {
-        home_video_bg_element.play();
-    } else {
-        home_video_bg_element.pause();
-    }
-}
+swip_anime.dataset.state = "right";
 
-playNextVideo();
+set_image_to_banner();
 
-document.addEventListener('keydown', function (event) {
-    if (event.key === "ArrowLeft") {
-        playPreviousVideo();
-    } else if (event.key === "ArrowRight") {
-        playNextVideo();
-    } else if (event.key === " ") {
-        playPauseVideo();
-    }
-});
+setInterval(set_image_to_banner, 5000);
+
 
 function add_class_name(class_name , element){
     element.classList.toggle(class_name);

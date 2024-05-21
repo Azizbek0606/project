@@ -10,104 +10,111 @@
 </head>
 
 <body>
-    <div class="container">
-        <section>
-            <header>
-                <div class="logo">
-                    <img src="./images/logo.png" width="100%" height="100%" alt="">
-                </div>
-                <div class="nav_content" id="nav_context">
-                    <ul>
-                        <li>
-                            <a href="#">Bosh sahifa</a>
-                        </li>
-                        <li>
-                            <a href="#">Biz haqimizda</a>
-                        </li>
-                        <li>
-                            <a href="#">Aloqa</a>
-                        </li>
-                        <li>
-                            <a href="#">Narxlar</a>
-                        </li>
-                        <p class="nav_toggler_into_context"
-                            onclick="add_class_name('active_nav_context' , nav_context)">&times;</p>
-                    </ul>
-                </div>
-                <p class="nav_context_toggler" onclick="add_class_name('active_nav_context' , nav_context)">Menu</p>
-            </header>
-            <div class="banner_context">
-                <div class="banner_title">
-                    <h1></h1>
-                </div>
-                <div class="banner_subtitle">
-                    <h2></h2>
-                </div>
-                <div class="banner_button">
-                    <button>
-                        Batafsil Ma'lumot
-                    </button>
-                </div>
-            </div>
-            <div class="video_controller">
-                <div class="controller_wrapper">
-                    <div class="play" onclick="playPauseVideo()">
-                        <img src="./images/icons/play.svg" alt="">
+    <div class="banner_wrapper">
+        <div class="anime_hidden_wrapper">
+            <div class="swip_anime" data-state="right"></div>
+        </div>
+        <div class="container">
+            <section>
+                <header>
+                    <div class="logo">
+                        <img src="./images/logo.png" width="100%" height="100%" alt="">
                     </div>
-                    <div class="previos" onclick="playPreviousVideo()">
-                        <img src="./images/icons/prewiev.svg" alt="">
+                    <div class="nav_content" id="nav_context">
+                        <ul>
+                            <li>
+                                <a href="#">Bosh sahifa</a>
+                            </li>
+                            <li>
+                                <a href="#">Biz haqimizda</a>
+                            </li>
+                            <li>
+                                <a href="#">Aloqa</a>
+                            </li>
+                            <li>
+                                <a href="#">Narxlar</a>
+                            </li>
+                            <p class="nav_toggler_into_context"
+                                onclick="add_class_name('active_nav_context' , nav_context)">
+                                &times;</p>
+                        </ul>
                     </div>
-                    <div class="next" onclick="playNextVideo()">
-                        <img src="./images/icons/prewiev.svg" style="transform: rotate(180deg);" alt="">
-                    </div> 
+                    <p class="nav_context_toggler" onclick="add_class_name('active_nav_context' , nav_context)">Menu
+                    </p>
+                </header>
+                <div class="banner_context">
+                    <div class="banner_title">
+                        <h1></h1>
+                    </div>
+                    <div class="banner_subtitle">
+                        <h2></h2>
+                    </div>
+                    <div class="banner_button">
+                        <button>
+                            Batafsil Ma'lumot
+                        </button>
+                    </div>
                 </div>
-            </div>
-            <div class="full_info">
-                <div class="info_wrapper">
-                    <div class="location">
-                        <img src="./images/icons/location.svg" alt="location">
-                        <span>location</span>
-                    </div>
-                    <div class="networking">
-                        <a href="#">
-                            <div class="network_box">
-                                <img src="./images/icons/facebook.svg" alt="Facebook">
-                            </div>
-                        </a>
-                        <a href="#">
-                            <div class="network_box">
-                                <img src="./images/icons/youtube.svg" alt="YouTube">
-                            </div>
-                        </a>
-                        <a href="#">
-                            <div class="network_box">
-                                <img src="./images/icons/telegram.svg" alt="Telegram">
-                            </div>
-                        </a>
-                        <a href="#">
-                            <div class="network_box">
-                                <img src="./images/icons/instagram.svg" alt="Instagram">
-                            </div>
-                        </a>
-                    </div>
-
-                    <div class="calling">
-                        <div class="phone">
-                            <img src="./images/icons/phone.svg" alt="Phone">
-                            <span>+998 91 603 54 74</span>
+                <div class="video_controller">
+                    <div class="controller_wrapper">
+                        <div class="previos" onclick="playPreviousVideo()">
+                            <img src="./images/icons/prewiev.svg" alt="">
                         </div>
-                        <div class="phone">
-                            <img src="./images/icons/phone.svg" alt="Phone">
-                            <span>+998 91 604 54 74</span>
+                        <div class="next" onclick="set_image_to_banner()">
+                            <img src="./images/icons/prewiev.svg" style="transform: rotate(180deg);" alt="">
                         </div>
                     </div>
                 </div>
-            </div>
+                <div class="full_info">
+                    <div class="info_wrapper">
+                        <div class="location">
+                            <div class="phone_icon">
+                                <img src="./images/icons/location.svg" alt="location">
+                            </div>
+                            <span>location</span>
+                        </div>
+                        <div class="networking">
+                            <a href="#">
+                                <div class="network_box">
+                                    <img src="./images/icons/facebook.svg" alt="Facebook">
+                                </div>
+                            </a>
+                            <a href="#">
+                                <div class="network_box">
+                                    <img src="./images/icons/youtube.svg" alt="YouTube">
+                                </div>
+                            </a>
+                            <a href="#">
+                                <div class="network_box">
+                                    <img src="./images/icons/telegram.svg" alt="Telegram">
+                                </div>
+                            </a>
+                            <a href="#">
+                                <div class="network_box">
+                                    <img src="./images/icons/instagram.svg" alt="Instagram">
+                                </div>
+                            </a>
+                        </div>
 
-        </section>
-    </div>
-    <div class="video_bg">
-        <video muted loop></video>
+                        <div class="calling">
+                            <div class="phone">
+                                <div class="phone_icon">
+                                    <img src="./images/icons/phone.svg" alt="Phone">
+                                </div>
+                                <span>+998 91 603 54 74</span>
+                            </div>
+                            <div class="phone">
+                                <div class="phone_icon">
+                                    <img src="./images/icons/phone.svg" alt="Phone">
+                                </div>
+                                <span>+998 91 604 54 74</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+        </div>
     </div>
     <script src="./scripts/app.js"></script>
 </body>

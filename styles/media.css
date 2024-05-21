@@ -1,4 +1,29 @@
 @import url(./constant.css);
+@media screen and (max-width: 960px) {
+    .full_info{
+        margin-top: var(--small_distances);
+    }
+    .info_wrapper > div{
+        width: auto;
+    }
+    .location , .network_box , .calling{
+        font-size: var(--small_font_size);
+        height: 40px;
+        border-radius: var(--xx_small_distances);
+    }
+    .network_box{
+        width: 40px;
+    }
+    .phone_icon{
+        width: 20px;
+        height: 20px;
+    }
+    .phone_icon > img{
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+}
 @media screen and (max-width: 768px) {
     .nav_content{
         width: 0;
@@ -12,10 +37,12 @@
         backdrop-filter: blur(var(--xx_small_distances));
         overflow: hidden;
         transition: 0.3s;
+        z-index: 9999 !important;
     }
     .nav_content ul{
         flex-direction: column;
         gap: 20px;
+        z-index: 99999 !important;
     }
     .nav_toggler_into_context{
         display: block;
@@ -45,5 +72,30 @@
     }
     header{
         position: relative;
+    }
+    .banner_title h1{
+        font-size: var(--x_large_font_size) !important;
+    }
+    .banner_subtitle h2{
+        font-size: var(--medium_font_size) !important;
+    }
+    .banner_button button{
+        width: 150px;
+        height: 40px;
+        font-size: var(--small_font_size) !important;
+        border-radius: var(--x_small_distances);
+    }
+    .previos , .next{
+        width: 40px;
+        height: 30px;
+        border-radius: var(--xx_small_distances);
+    }
+}
+
+@media screen and (max-width:700px) {
+    .calling{
+        width: 100%;
+        position: absolute;
+        transform: translateY(50px);
     }
 }

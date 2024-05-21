@@ -7,6 +7,27 @@
     list-style: none;
     text-decoration: none;
 }
+.banner_wrapper{
+    width: 100%;
+    height: 100vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: relative;
+    transition: all 0.5s;
+}
+.anime_hidden_wrapper{
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    position: absolute;
+}
+.swip_anime{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    transition: transform 2s ease-in-out, width 1s ease-in-out, background-color 0s;
+}
 .container {
     max-width: 1200px;
     width: 100%;
@@ -17,10 +38,6 @@ section{
     width: 100%;
     height: 100vh;
     padding: var(--xx_large_distances) var(--small_distances);
-}
-.video_bg {
-    width: 100%;
-    height: 100vh;
 }
 header{
     width: 100%;
@@ -41,6 +58,7 @@ header ul{
     justify-content: center;
     align-items: center;
     gap: 40px;
+    z-index: 99999 !important;
 }
 header ul li a{
     color: var(--light);
@@ -51,20 +69,6 @@ header ul li a{
 }
 .nav_toggler_into_context  , .nav_context_toggler{
     display: none;
-}
-.video_bg{
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: -999 !important;
-}
-.video_bg video{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: -11 !important;
 }
 .banner_context{
     width: 100%;
@@ -79,6 +83,7 @@ header ul li a{
     gap: var(--small_distances);
     color: white;
     position: relative;
+    z-index: 1;
 }
 .banner_context h1 , .banner_context h2{
     font-weight: 100;
@@ -89,7 +94,7 @@ header ul li a{
     width: 100%;
     height: 100%;
     background: var(--blue_opacity);
-    filter: blur(var(--xxx_large_distances));
+    filter: blur(var(--large_distances));
     z-index: -1;
 }
 .banner_button button{
@@ -121,9 +126,9 @@ header ul li a{
     align-items: flex-end;
     gap: 5px;
 }
-.play , .previos , .next{
+.previos , .next{
     width: 70px;
-    height: 70px;
+    height: 40px;
     border-radius: var(--x_small_distances);
     border: 1px solid var(--light);
     background-color: #ffffff70;
@@ -134,17 +139,10 @@ header ul li a{
 	-webkit-backdrop-filter: blur(var(--xx_small_distances));
 	backdrop-filter: blur(var(--xx_small_distances));
 }
-.play > img , .previos > img, .next > img{
-    width: 40%;
-    height: 50%;
-    object-fit: cover;
-}
 .previos > img, .next > img{
     width: 20%;
     height: 50%;
-}
-.previos , .next{
-    height: 40px;
+    object-fit: cover;
 }
 .full_info{
     width: 100%;
@@ -201,6 +199,15 @@ header ul li a{
     align-items: center;
     padding: 0 var(--x_small_distances);
     gap: 10px;
+}
+.phone_icon{
+    width: 30px;
+    height: 30px;
+}
+.phone_icon > img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
 }
 .calling > div{
     display: flex;
