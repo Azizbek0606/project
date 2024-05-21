@@ -23,7 +23,7 @@ let data_banner = {
         "url": "../images/banner_images/balgariya.jpg",
         "swip_color": '#00808070'
     }
-}
+};
 
 let banner_wrapper = document.querySelector(".banner_wrapper");
 let banner_title = document.querySelector(".banner_title h1");
@@ -49,11 +49,18 @@ function preloadImages(urls, callback) {
     }
 }
 
-// Call preloadImages function before setting interval
-preloadImages(Object.values(data_banner).map(item => item.url), function () {
-    setInterval(set_image_to_banner, 5000);
-});
+// Function to initialize banner
+function initBanner() {
+    // Call preloadImages function before setting interval
+    preloadImages(Object.values(data_banner).map(item => item.url), function () {
+        setInterval(set_image_to_banner, 5000);
+    });
+}
 
+// Call initBanner to start the banner
+initBanner();
+
+// Function to change banner image and content
 function set_image_to_banner() {
     let keys = Object.keys(data_banner);
     let key = keys[bg_image_index];
@@ -77,6 +84,8 @@ function set_image_to_banner() {
 }
 
 swip_anime.dataset.state = "right";
+
+set_image_to_banner();
 
 
 function add_class_name(class_name , element){
