@@ -31,7 +31,7 @@ let banner_subtitle = document.querySelector(".banner_subtitle h2");
 let bg_image_index = 0;
 let swip_anime = document.querySelector('.swip_anime');
 
-// Function to preload images
+// Preload images and then initialize banner
 function preloadImages(urls, callback) {
     let loadedImages = 0;
     let img;
@@ -47,40 +47,45 @@ function preloadImages(urls, callback) {
     }
 }
 
-// Function to initialize banner
+// Initialize banner after preloading images
 function initBanner() {
-    // Call preloadImages function before setting interval
-    preloadImages(Object.values(data_banner).map(item => item.url), function () {
+    const urls = Object.values(data_banner).map(item => item.url);
+    preloadImages(urls, function () {
         setInterval(set_image_to_banner, 5000);
         set_image_to_banner(); // Show the first banner immediately
     });
 }
 
-// Call initBanner to start the banner
+function set_image_to_banner() {
+    const keys = Object.keys(data_banner);
+    const key = keys[bg_image_index];
+    const data = data_banner[key];
+
+    // Create a new image element to ensure it's loaded before setting it as background
+    const img = new Image();
+    img.onload = function () {
+        banner_wrapper.style.backgroundImage = `url(${data.url})`;
+        banner_title.innerText = data.title;
+        banner_subtitle.innerText = data.description;
+
+        swip_anime.style.backgroundColor = data.swip_color;
+        if (swip_anime.dataset.state === "right") {
+            swip_anime.style.transform = "translateX(-100%)";
+            swip_anime.dataset.state = "left";
+            swip_anime.style.clipPath = "polygon(100% 0%, 75% 50%, 100% 100%, 25% 100%, 0% 50%, 25% 0%)";
+        } else {
+            swip_anime.style.transform = "translateX(100%)";
+            swip_anime.style.clipPath = "polygon(75% 0%, 100% 50%, 75% 100%, 0% 100%, 25% 50%, 0% 0%)";
+            swip_anime.dataset.state = "right";
+        }
+
+        bg_image_index = (bg_image_index + 1) % keys.length;
+    };
+    img.src = data.url; // Trigger the load event
+}
+
 initBanner();
 
-// Function to change banner image and content
-function set_image_to_banner() {
-    let keys = Object.keys(data_banner);
-    let key = keys[bg_image_index];
-    let data_len = Object.keys(data_banner).length;
-    banner_wrapper.style.backgroundImage = `url(${ data_banner[key].url })`;
-    banner_title.innerText = data_banner[key].title;
-    banner_subtitle.innerText = data_banner[key].description;
-
-    swip_anime.style.backgroundColor = data_banner[key].swip_color;
-    if (swip_anime.dataset.state === "right") {
-        swip_anime.style.transform = "translateX(-100%)";
-        swip_anime.dataset.state = "left";
-        swip_anime.style.clipPath = "polygon(100% 0%, 75% 50%, 100% 100%, 25% 100%, 0% 50%, 25% 0%)";
-    } else {
-        swip_anime.style.transform = "translateX(100%)";
-        swip_anime.style.clipPath = "polygon(75% 0%, 100% 50%, 75% 100%, 0% 100%, 25% 50%, 0% 0%)";
-        swip_anime.dataset.state = "right";
-    }
-
-    bg_image_index = (bg_image_index + 1) % data_len;
-}
 swip_anime.dataset.state = "right";
 function add_class_name(class_name , element){
     element.classList.toggle(class_name);
