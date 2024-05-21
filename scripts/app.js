@@ -31,6 +31,29 @@ let banner_subtitle = document.querySelector(".banner_subtitle h2");
 let bg_image_index = 0;
 let swip_anime = document.querySelector('.swip_anime');
 
+let imagesLoaded = 0; // global variable to track the number of images loaded
+
+// Function to preload images
+function preloadImages(urls, callback) {
+    let loadedImages = 0;
+    let img;
+    for (let i = 0; i < urls.length; i++) {
+        img = new Image();
+        img.onload = function () {
+            loadedImages++;
+            if (loadedImages === urls.length) {
+                callback();
+            }
+        };
+        img.src = urls[i];
+    }
+}
+
+// Call preloadImages function before setting interval
+preloadImages(Object.values(data_banner).map(item => item.url), function () {
+    setInterval(set_image_to_banner, 5000);
+});
+
 function set_image_to_banner() {
     let keys = Object.keys(data_banner);
     let key = keys[bg_image_index];
@@ -54,10 +77,6 @@ function set_image_to_banner() {
 }
 
 swip_anime.dataset.state = "right";
-
-set_image_to_banner();
-
-setInterval(set_image_to_banner, 5000);
 
 
 function add_class_name(class_name , element){
