@@ -27,6 +27,8 @@
     height: 100%;
     position: absolute;
     transition: transform 2s ease-in-out, width 1s ease-in-out, background-color 0s;
+    backdrop-filter: blur(var(--small_distances));
+    -webkit-backdrop-filter: blur(--small_distances);
 }
 .container {
     max-width: 1200px;
@@ -37,7 +39,10 @@
 section{
     width: 100%;
     height: 100vh;
-    padding: var(--xx_large_distances) var(--small_distances);
+    padding: var(--xxx_large_distances) var(--small_distances);
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
 }
 header{
     width: 100%;
@@ -88,16 +93,6 @@ header ul li a{
 .banner_context h1 , .banner_context h2{
     font-weight: 100;
 }
-.banner_context::before{
-    position: absolute;
-    content: "";
-    width: 100%;
-    height: 100%;
-    background: var(--blue_opacity);
-    filter: blur(var(--large_distances));
-    -webkit-filter: blur(var(--large_distances));
-    z-index: -1;
-}
 .banner_button button{
     width: 200px;
     height: 50px;
@@ -113,37 +108,6 @@ header ul li a{
     color: var(--yellow);
     font-weight: bolder;
     font-size: var(--xxx_large_font_size);
-}
-.video_controller{
-    width: 100%;
-    height: 70px;
-    margin-top: var(--medium_distances);
-}
-.controller_wrapper{
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: flex-start;
-    align-items: flex-end;
-    gap: 5px;
-}
-.previos , .next{
-    width: 70px;
-    height: 40px;
-    border-radius: var(--x_small_distances);
-    border: 1px solid var(--light);
-    background-color: #ffffff70;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-	-webkit-backdrop-filter: blur(var(--xx_small_distances));
-	backdrop-filter: blur(var(--xx_small_distances));
-}
-.previos > img, .next > img{
-    width: 20%;
-    height: 50%;
-    object-fit: cover;
 }
 .full_info{
     width: 100%;

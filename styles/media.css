@@ -85,11 +85,6 @@
         font-size: var(--small_font_size) !important;
         border-radius: var(--x_small_distances);
     }
-    .previos , .next{
-        width: 40px;
-        height: 30px;
-        border-radius: var(--xx_small_distances);
-    }
 }
 
 @media screen and (max-width:700px) {

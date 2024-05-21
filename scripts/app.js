@@ -81,7 +81,6 @@ function set_image_to_banner() {
 
     bg_image_index = (bg_image_index + 1) % data_len;
 }
-
 swip_anime.dataset.state = "right";
 function add_class_name(class_name , element){
     element.classList.toggle(class_name);
