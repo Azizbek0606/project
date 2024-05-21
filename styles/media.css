@@ -11,6 +11,9 @@
         height: 40px;
         border-radius: var(--xx_small_distances);
     }
+    .networking{
+        gap: 5px;
+    }
     .network_box{
         width: 40px;
     }
@@ -47,8 +50,8 @@
     .nav_toggler_into_context{
         display: block;
         position: absolute;
-        top: 0px;
-        right: 0px;
+        top: -30px;
+        right: -7px;
         padding: var(--x_small_distances);
         border-radius: var(--x_small_distances);
         font-size: var(--xxx_large_font_size);
