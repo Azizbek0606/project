@@ -1,5 +1,6 @@
 import { about_card_content } from './data.js';
 import { data_banner } from './data.js';
+import { prices_card_data } from './data.js';
 let banner_wrapper = document.querySelector(".banner_wrapper");
 let banner_title = document.querySelector(".banner_title");
 let banner_subtitle = document.querySelector(".banner_subtitle");
@@ -31,7 +32,7 @@ function preloadImages(urls, callback) {
 function initBanner() {
     const urls = Object.values(data_banner).map(item => item.url);
     preloadImages(urls, function () {
-        setInterval(set_image_to_banner, 5000);
+        setInterval(set_image_to_banner, 7000);
         set_image_to_banner();
     });
 }
@@ -80,47 +81,121 @@ function set_image_to_banner() {
 initBanner();
 
 swip_anime.dataset.state = "right";
-const cardWrapper = document.querySelector('.about_card_wrapper');
-function createCard(data, parentElement) {
+// function createCard(data, parentElement) {
+//     const fragment = document.createDocumentFragment();
+//     let delay = 0;
+//     Object.keys(data).forEach(key => {
+//         const { title, description, url } = data[key];
+
+//         const card = document.createElement('div');
+//         card.className = 'card';
+//         card.setAttribute("data-aos", "fade-up");
+//         card.setAttribute("data-aos-delay", delay);
+
+//         const cardImgWrapper = document.createElement('div');
+//         cardImgWrapper.className = 'card_image';
+
+//         const cardImg = document.createElement('img');
+//         cardImg.src = url;
+//         cardImgWrapper.appendChild(cardImg);
+
+//         const cardTitle = document.createElement('div');
+//         cardTitle.className = 'card_title';
+
+//         const cardTitleH2 = document.createElement('h2');
+//         cardTitleH2.innerText = title;
+//         cardTitle.appendChild(cardTitleH2);
+
+//         const cardContent = document.createElement('div');
+//         cardContent.className = 'card_content';
+
+//         const cardContentP = document.createElement('p');
+//         cardContentP.innerText = description;
+//         cardContent.appendChild(cardContentP);
+
+//         card.appendChild(cardImgWrapper);
+//         card.appendChild(cardTitle);
+//         card.appendChild(cardContent);
+
+//         fragment.appendChild(card);
+//         delay += 100;
+//     });
+//     parentElement.appendChild(fragment);
+// }
+
+// createCard(about_card_content, cardWrapper);
+
+
+
+function createCard(data, parentElement, type = 'default') {
     const fragment = document.createDocumentFragment();
     let delay = 0;
+
     Object.keys(data).forEach(key => {
         const { title, description, url } = data[key];
+        let card;
 
-        const card = document.createElement('div');
-        card.className = 'card';
-        card.setAttribute("data-aos", "fade-up");
-        card.setAttribute("data-aos-delay", delay);
-
-        const cardImgWrapper = document.createElement('div');
-        cardImgWrapper.className = 'card_image';
-
-        const cardImg = document.createElement('img');
-        cardImg.src = url;
-        cardImgWrapper.appendChild(cardImg);
-
-        const cardTitle = document.createElement('div');
-        cardTitle.className = 'card_title';
-
-        const cardTitleH2 = document.createElement('h2');
-        cardTitleH2.innerText = title;
-        cardTitle.appendChild(cardTitleH2);
-
-        const cardContent = document.createElement('div');
-        cardContent.className = 'card_content';
-
-        const cardContentP = document.createElement('p');
-        cardContentP.innerText = description;
-        cardContent.appendChild(cardContentP);
-
-        card.appendChild(cardImgWrapper);
-        card.appendChild(cardTitle);
-        card.appendChild(cardContent);
+        if (type === 'default') {
+            card = createDefaultCard(title, description, url, delay);
+        } else if (type === 'prices') {
+            card = createPricesCard(title, description, url);
+        }
 
         fragment.appendChild(card);
         delay += 100;
     });
+
     parentElement.appendChild(fragment);
 }
 
-createCard(about_card_content, cardWrapper);
+function createDefaultCard(title, description, url, delay) {
+    const card = document.createElement('div');
+    card.className = 'card';
+    card.setAttribute('data-aos', 'fade-up');
+    card.setAttribute('data-aos-delay', delay);
+
+    card.appendChild(createElement('div', 'card_image', createImage(url)));
+    card.appendChild(createElement('div', 'card_title', createElement('h2', '', title)));
+    card.appendChild(createElement('div', 'card_content', createElement('p', '', description)));
+
+    return card;
+}
+
+function createPricesCard(title, description, url) {
+    const pricesCardWrapper = document.createElement('div');
+    pricesCardWrapper.className = 'prices_card';
+    let img = createElement('div', 'prices_image', createImage(url));
+    pricesCardWrapper.appendChild(img);
+    const pricesCard = createElement('div', 'prices_card_content_block',
+            createElement('div', 'prices_title', createElement('h1', '', title)),
+            createElement('div', 'prices_content', createElement('p', '', description)),
+            createElement('div', 'prices_button', createElement('button', '', 'Batafsil'))
+        );
+
+    pricesCardWrapper.appendChild(pricesCard);
+    return pricesCardWrapper;
+}
+
+function createElement(tag, className, ...children) {
+    const element = document.createElement(tag);
+    if (className) element.className = className;
+    children.forEach(child => {
+        if (typeof child === 'string') {
+            element.innerText = child;
+        } else {
+            element.appendChild(child);
+        }
+    });
+    return element;
+}
+
+function createImage(url) {
+    const img = document.createElement('img');
+    img.src = url;
+    return img;
+}
+
+const cardWrapper = document.querySelector('.about_card_wrapper');
+const prices_card_wrapper = document.querySelector('.prices_card_wrapper');
+createCard(about_card_content, cardWrapper, 'default');
+createCard(prices_card_data, prices_card_wrapper, 'prices');

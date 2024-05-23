@@ -150,6 +150,7 @@ header a:hover::before{
 	-webkit-backdrop-filter: blur(var(--xx_small_distances));
 	backdrop-filter: blur(var(--xx_small_distances));
     border-radius: var(--x_small_distances);
+    cursor: pointer;
 }
 .location{
     width: 250px;
@@ -174,6 +175,25 @@ header a:hover::before{
     justify-content: center;
     align-items: center;
     padding: var(--xx_small_distances);
+    position: relative;
+    z-index: 99;
+    overflow: hidden;
+}
+.network_box::after{
+    content: "";
+    width: 10%;
+    height: 10%;
+    background-color: var(--yellow);
+    clip-path: circle(50% at 50% 50%);
+    position: absolute;
+    transition: 0.3s;
+    z-index: -1;
+    opacity: 0;
+}
+.network_box:hover::after{
+    opacity: 1;
+    width: 130%;
+    height: 130%;
 }
 .network_box img{
     width: 100%;
@@ -307,4 +327,99 @@ header a:hover::before{
 .card:hover img{
     transform: scale(1.1);
     filter: contrast(1);
+}
+.prices_section{
+    width: 100%;
+    min-height: 450px;
+    position: relative;
+    padding: var(--small_distances) var(--small_distances);
+}
+.prices_section::after , .prices_section::before{
+    content: "";
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    background-color: var(--blue_opacity);
+    filter: blur(var(--medium_distances));
+    z-index: -1000;
+}
+.prices_section::after{
+    top: 0;
+    left: 0;
+    border-bottom-right-radius: 100%;
+}
+.prices_section::before{
+    bottom: 0;
+    right: 0;
+    border-top-left-radius: 100% ;
+}
+.prices_card_wrapper{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: var(--medium_distances);
+    z-index: -99 !important;
+}
+.prices_card{
+    width: 300px;
+    height: 440px;
+    border: 1px solid var(--blue);
+    padding: var(--x_small_distances) !important;
+    border-radius: var(--large_distances);
+    position: relative;
+    overflow: hidden;
+    background-color: var(--blue_opacity);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    color: white;
+}
+.prices_card::before , .prices_card::after{
+    content: "";
+    width: 30%;
+    height: 30%;
+    background-color: var(--yellow);
+    position: absolute;
+    filter: blur(var(--small_distances));
+}
+.prices_card::after{
+    top: 0;
+    right: 0;
+    border-bottom-left-radius: 100%;
+}
+.prices_card::before{
+    top: 0;
+    left: 0;
+    border-bottom-right-radius: 100%;
+}
+.prices_image{
+    width: 100%;
+    height: 200px;
+    border-radius: var(--medium_distances);
+    overflow: hidden;
+    z-index: 99;
+}
+.prices_image > img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.prices_card_content_block{
+    width: 100%;
+    height: 210px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 10px;
+}
+.prices_button button{
+    border: 1px solid var(--yellow);
+    background-color: var(--yellow_opacity);
+    width: 100%;
+    height: 45px;
+    border-radius: var(--small_distances);
+    color: white;
+    outline: none;
+    cursor: pointer;
 }

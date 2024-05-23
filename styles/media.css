@@ -34,10 +34,10 @@
     .about_us_wrapper{
         min-height: 550px;
     }
-    .about_card_wrapper{
+    .about_card_wrapper , .prices_card_wrapper{
         gap: 10px;
     }
-    .card{
+    .card , .prices_card{
         width: 48%;
     }
 }
@@ -113,6 +113,9 @@
         width: 100%;
         position: absolute;
         transform: translateY(50px);
+    }
+    .prices_card {
+        width: 100%;
     }
 }
 @media screen and (max-width:550px) {

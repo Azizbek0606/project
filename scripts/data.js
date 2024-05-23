@@ -1,13 +1,13 @@
 export let data_banner = {
     "dubai": {
         "title": "Dubai",
-        "description": "Assalomu alakum biz bilan dubayga arzon narxlarda maroqli sayoxat qilishni istaysizmi unda darxol bizga murojat qiling",
+        "description": "Assalomu alakum biz bilan Dubaiga arzon narxlarda maroqli sayoxat qilishni istaysizmi unda darxol bizga murojat qiling",
         "url": "../images/banner_images/dubai.jpg",
         "swip_color": '#E6E6FA70'
     },
     "misr": {
         "title": "Misr",
-        "description": "Assalomu alakum Misrga bilan dubayga arzon narxlarda maroqli sayoxat qilishni istaysizmi unda darxol bizga murojat qiling",
+        "description": "Assalomu alakum Misrga bilan Misrga arzon narxlarda maroqli sayoxat qilishni istaysizmi unda darxol bizga murojat qiling",
         "url": "../images/banner_images/misr.jpg",
         "swip_color": '#ef6c0070'
     },
@@ -46,3 +46,25 @@ export let about_card_content = {
         'url': "../images/card/git.png"
     },
 };
+export let prices_card_data = {
+    'dubai': {
+        'title': "Dubai",
+        'description': "Biz bilan Dubayga arzon narxlarda maroqli sayoxat qilishni istaysizmi unda darxol bizga murojat qiling.",
+        'url': "../images/prices_card/dubai.jpg"
+    },
+    'misr': {
+        'title': "Misr",
+        'description': " Misrming jannat makon o'lkalariga sayohat qilishni hohlaysizmi unda bizga darxol murojat qiling.",
+        'url': "../images/prices_card/misr.jpg"
+    },
+    'antaliya': {
+        'title': "Antaliya",
+        'description': "Biz bilan antaliyada maroqli xoriq chiqarishni istaysizmi unda bizga darxol murojat qiling.",
+        'url': "../images/prices_card/antalia.jpg"
+    },
+    'balgariya': {
+        'title': "Bolgariya",
+        'description': "Biz bilan Balgariyaga arzon narxlarda maroqli sayoxat qilishni istaysizmi unda darxol bizga murojat qiling",
+        'url': "../images/prices_card/balgariya.jpg"
+    }
+}
