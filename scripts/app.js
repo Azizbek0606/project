@@ -6,7 +6,13 @@ let banner_subtitle = document.querySelector(".banner_subtitle h2");
 let bg_image_index = 0;
 let swip_anime = document.querySelector('.swip_anime');
 
-// Preload images and then initialize banner
+let menu_toggler = document.querySelectorAll(".menu_toggler");
+let nav_context = document.querySelector('#nav_context');
+for (let i = 0; i < menu_toggler.length; i++) {
+    menu_toggler[i].addEventListener("click", ()=>{
+        nav_context.classList.toggle("active_nav_context");
+    });
+}
 function preloadImages(urls, callback) {
     let loadedImages = 0;
     let img;
@@ -101,8 +107,3 @@ function createCard(data, parentElement) {
 }
 
 createCard(about_card_content, cardWrapper);
-
-
-function add_class_name(class_name , element){
-    element.classList.toggle(class_name);
-}
