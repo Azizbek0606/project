@@ -1,8 +1,8 @@
-import { data_banner } from './data.js';
 import { about_card_content } from './data.js';
+import { data_banner } from './data.js';
 let banner_wrapper = document.querySelector(".banner_wrapper");
-let banner_title = document.querySelector(".banner_title h1");
-let banner_subtitle = document.querySelector(".banner_subtitle h2");
+let banner_title = document.querySelector(".banner_title");
+let banner_subtitle = document.querySelector(".banner_subtitle");
 let bg_image_index = 0;
 let swip_anime = document.querySelector('.swip_anime');
 
@@ -35,11 +35,14 @@ function initBanner() {
         set_image_to_banner();
     });
 }
+let check_direction = "right";
 
 function set_image_to_banner() {
     const keys = Object.keys(data_banner);
     const key = keys[bg_image_index];
     const data = data_banner[key];
+    banner_title.removeChild(banner_title.firstElementChild);
+    banner_subtitle.removeChild(banner_subtitle.firstElementChild);
     const img = new Image();
     img.onload = function () {
         swip_anime.style.backgroundColor = data.swip_color;
@@ -53,8 +56,22 @@ function set_image_to_banner() {
             swip_anime.dataset.state = "right";
         }
         banner_wrapper.style.backgroundImage = `url(${data.url})`;
-        banner_title.innerText = data.title;
-        banner_subtitle.innerText = data.description;
+        let title_content = document.createElement("h1");
+        let subtitle_content = document.createElement("h2");
+        if (check_direction == "right") {
+            check_direction = "left";
+            title_content.setAttribute("data-aos", "flip-right");
+            subtitle_content.setAttribute("data-aos", `fade-up-right`);
+        } else {
+            check_direction = "right";
+            title_content.setAttribute("data-aos", "flip-left");
+            subtitle_content.setAttribute("data-aos", `fade-up-left`);
+        }
+        subtitle_content.setAttribute("data-aos-delay", 200);
+        title_content.textContent = data.title;
+        subtitle_content.textContent = data.description;
+        banner_title.append(title_content);
+        banner_subtitle.append(subtitle_content);
         bg_image_index = (bg_image_index + 1) % keys.length;
     };
     img.src = data.url;
