@@ -422,4 +422,23 @@ header a:hover::before{
     color: white;
     outline: none;
     cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.prices_button button::before{
+    content: "";
+    width: 0;
+    height: 0;
+    background-color: var(--blue);
+    position: absolute;
+    clip-path: circle(50% at 50% 50%);
+    transition: 0.3s;
+    z-index: -1;
+}
+.prices_button button:hover::before{
+    width: 170%;
+    height: 170%;
 }
