@@ -26,6 +26,9 @@
         height: 100%;
         object-fit: contain;
     }
+    .about_us_wrapper{
+        min-height: 550px;
+    }
     .about_card_wrapper{
         gap: 10px;
     }
