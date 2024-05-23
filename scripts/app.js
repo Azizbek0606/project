@@ -156,3 +156,10 @@ const cardWrapper = document.querySelector('.about_card_wrapper');
 const prices_card_wrapper = document.querySelector('.prices_card_wrapper');
 createCard(about_card_content, cardWrapper, 'default');
 createCard(prices_card_data, prices_card_wrapper, 'prices');
+
+document.querySelector(".footer_location_box").addEventListener("mouseover", () => {
+    document.querySelector(".loaction_icon_content_wrapper").style.transform = "translateY(0)";
+})
+document.querySelector(".footer_location_box").addEventListener("mouseleave", () => {
+    document.querySelector(".loaction_icon_content_wrapper").style.transform = "translateY(-100%)";
+})

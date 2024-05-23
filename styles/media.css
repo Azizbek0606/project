@@ -106,6 +106,9 @@
         background-size: cover;
         background-position: center center !important;
     }
+    .footer_content_wrapper{
+        gap: var(--xxx_large_distances);
+    }
 }
 
 @media screen and (max-width:700px) {
@@ -116,6 +119,12 @@
     }
     .prices_card {
         width: 100%;
+    }
+    .footer_content_wrapper{
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        gap: var(--xxx_large_distances);
     }
 }
 @media screen and (max-width:550px) {
