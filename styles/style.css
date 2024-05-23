@@ -7,14 +7,23 @@
     list-style: none;
     text-decoration: none;
 }
+*::-webkit-scrollbar{
+    width: 10px;
+}
+*::-webkit-scrollbar-thumb{
+    background-color: var(--blue);
+    border: 2px solid var(--light);
+    border-radius: var(--xx_small_distances);
+}
 .banner_wrapper{
     width: 100%;
     height: 100vh;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
+    background-attachment: fixed;
     position: relative;
-    transition: all 0.5s;
+    transition: all 1s;
 }
 .anime_hidden_wrapper{
     width: 100%;
@@ -26,12 +35,12 @@
     width: 100%;
     height: 100%;
     position: absolute;
-    transition: transform 2s ease-in-out, width 1s ease-in-out, background-color 0s;
+    transition: transform 0.8s ease-in-out, width 1s ease-in-out, background-color 0s;
     backdrop-filter: blur(var(--small_distances));
     -webkit-backdrop-filter: blur(--small_distances);
 }
 .container {
-    max-width: 1200px;
+    max-width: 1300px;
     width: 100%;
     height: auto;
     margin: 0 auto;
@@ -67,6 +76,21 @@ header ul{
 }
 header ul li a{
     color: var(--light);
+    position: relative;
+}
+header a::before{
+    content: "";
+    width: 0%;
+    height: 2px;
+    background-color: var(--light);
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    transition: 0.3s;
+}
+
+header a:hover::before{
+    width: 100%;
 }
 .logo{
     width: 70px;
@@ -184,4 +208,104 @@ header ul li a{
 .calling > div:last-child{
     border-left: 2px solid var(--light);
     padding-left: 10px;
+}
+.about_us{
+    width: 100%;
+    height: auto;
+    position: relative;
+    padding: var(--xxx_large_distances) var(--small_distances);
+}
+.about_us::after , .about_us::before{
+    position: absolute;
+    content: "";
+    width: 250px;
+    height: 250px;
+    background-color: var(--yellow_opacity);
+    filter: blur(var(--xx_large_distances));
+    z-index: -1 !important;
+}
+.about_us::after{
+    top: 0;
+    left: 0;
+    border-bottom-right-radius: 100%;
+}
+.about_us::before{
+    bottom: 0;
+    right: 0;
+    border-top-left-radius: 100% ;
+}
+.about_title h1 > span{
+    color: var(--yellow);
+}
+.about_title h1{
+    color: var(--blue);
+}
+.about_us_wrapper{
+    width: 100%;
+    height: auto;
+    min-height: 350px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: var(--xxx_large_distances);
+}
+.about_card_wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: var(--medium_distances);
+}
+.card{
+    width: 300px;
+    height: 220px;
+    border: 1px solid var(--blue);
+    background-color: var(--blue_opacity);
+    color: var(--white);
+    position: relative;
+    border-radius: var(--medium_distances);
+    overflow: hidden;
+    padding: var(--x_small_distances);
+    backdrop-filter: blur(var(--small_distances));
+}
+.card h1 , .card h2  , .card p{
+    color: var(--light);
+    transition: 0.3s;
+}
+.card::before{
+    content: "";
+    width: 50%;
+    height: 50%;
+    background-color: var(--yellow_opacity);
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-bottom-left-radius: 100%;
+    z-index: -99 !important;
+    filter: blur(var(--xx_small_distances));
+    transition: 0.3s;
+}
+.card_image{
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: flex-end;
+}
+.card_image img{
+    object-fit: contain;
+    transition: 0.3s;
+    filter: contrast(0.5);
+}
+.card:hover::before{
+    width: 100%;
+    height: 100%;
+    border-radius: 0%;
+}
+.card:hover h2{
+    font-size: var(--large_font_size);
+    margin-bottom: var(--x_small_distances);
+}
+.card:hover img{
+    transform: scale(1.1);
+    filter: contrast(1);
 }

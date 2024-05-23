@@ -26,6 +26,12 @@
         height: 100%;
         object-fit: contain;
     }
+    .about_card_wrapper{
+        gap: 10px;
+    }
+    .card{
+        width: 48%;
+    }
 }
 @media screen and (max-width: 768px) {
     .nav_content{
@@ -95,5 +101,14 @@
         width: 100%;
         position: absolute;
         transform: translateY(50px);
+    }
+}
+@media screen and (max-width:550px) {
+    .card{
+        width: 100%;
+    }
+    .card::before{
+        width: 35%;
+        height: 60%;
     }
 }
