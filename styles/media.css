@@ -97,6 +97,10 @@
         font-size: var(--small_font_size) !important;
         border-radius: var(--x_small_distances);
     }
+    .banner_wrapper {
+        background-size: cover;
+        background-position: center center !important;
+    }
 }
 
 @media screen and (max-width:700px) {
@@ -113,5 +117,11 @@
     .card::before{
         width: 35%;
         height: 60%;
+    }
+}
+@media (max-width: 414px) and (min-device-pixel-ratio: 2) {
+    .banner_wrapper {
+        background-size: cover !important;
+        background-position: center top;
     }
 }
