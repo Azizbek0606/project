@@ -16,7 +16,7 @@
             <div class="swip_anime" data-state="right"></div>
         </div>
         <div class="container">
-            <section>
+            <section id="banner">
                 <header>
                     <div class="logo">
                         <img src="./images/logo.png" width="100%" height="100%" alt="">
@@ -27,13 +27,13 @@
                                 <a href="#">Bosh sahifa</a>
                             </li>
                             <li>
-                                <a href="#">Biz haqimizda</a>
+                                <a href="#" onclick="scrollToSection('about_us')">Biz haqimizda</a>
                             </li>
                             <li>
-                                <a href="#">Aloqa</a>
+                                <a href="#" onclick="scrollToSection('contact')">Aloqa</a>
                             </li>
                             <li>
-                                <a href="#">Narxlar</a>
+                                <a href="#" onclick="scrollToSection('prices')">Narxlar</a>
                             </li>
                             <p class="nav_toggler_into_context menu_toggler">
                                 &times; </p>
@@ -50,9 +50,11 @@
                         <h2></h2>
                     </div>
                     <div class="banner_button">
-                        <button>
-                            Batafsil Ma'lumot
-                        </button>
+                        <a href="https://t.me/DILMUROD040404">
+                            <button>
+                                Batafsil Ma'lumot
+                            </button>
+                        </a>
                     </div>
                 </div>
                 <div class="full_info">
@@ -64,22 +66,22 @@
                             <span>location</span>
                         </div>
                         <div class="networking">
-                            <a href="#">
+                            <a href="https://www.facebook.com/people/Dilmurod-Xayrullayev/pfbid0cDbKqwr8kmu1WdmQ6amisyvF9y7C5JkTCrsZfpebc1p6JhALJZ5skGVR2gNQcjd6l/">
                                 <div class="network_box">
                                     <img src="./images/icons/facebook.svg" alt="Facebook">
                                 </div>
                             </a>
-                            <a href="#">
+                            <a href="https://youtube.com/@qaqnustour?si=zetqNwIkbKkzQqJm">
                                 <div class="network_box">
                                     <img src="./images/icons/youtube.svg" alt="YouTube">
                                 </div>
                             </a>
-                            <a href="#">
+                            <a href="https://t.me/DILMUROD040404">
                                 <div class="network_box">
                                     <img src="./images/icons/telegram.svg" alt="Telegram">
                                 </div>
                             </a>
-                            <a href="#">
+                            <a href="https://www.instagram.com/qaqnus_tour">
                                 <div class="network_box">
                                     <img src="./images/icons/instagram.svg" alt="Instagram">
                                 </div>
@@ -91,13 +93,13 @@
                                 <div class="phone_icon">
                                     <img src="./images/icons/phone.svg" alt="Phone">
                                 </div>
-                                <span>+998 91 603 54 74</span>
+                                <span>+998 50 100 06 82</span>
                             </div>
                             <div class="phone">
                                 <div class="phone_icon">
                                     <img src="./images/icons/phone.svg" alt="Phone">
                                 </div>
-                                <span>+998 91 604 54 74</span>
+                                <span>+998 97 867 05 05</span>
                             </div>
                         </div>
                     </div>
@@ -106,7 +108,7 @@
             </section>
         </div>
     </div>
-    <div class="about_us">
+    <div class="about_us" id="about_us">
         <div class="container">
             <div class="about_us_wrapper">
                 <div class="about_title">
@@ -117,13 +119,13 @@
             </div>
         </div>
     </div>
-    <div class="prices_section">
+    <div class="prices_section" id="prices">
         <div class="container">
             <div class="prices_card_wrapper">
             </div>
         </div>
     </div>
-    <footer>
+    <footer id="contact">
         <div class="container">
             <div class="footer_content_wrapper">
                 <div class="footer_logo">
@@ -137,16 +139,16 @@
                 <div class="footer_navigation_context">
                     <ul>
                         <li>
-                            <a href="#">Bosh sahifa</a>
+                            <a onclick="scrollToSection('banner')">Bosh sahifa</a>
                         </li>
                         <li>
-                            <a href="#">Biz haqimizda</a>
+                            <a onclick="scrollToSection('about_us')">Biz haqimizda</a>
                         </li>
                         <li>
-                            <a href="#">Aloqa</a>
+                            <a onclick="scrollToSection('contact')">Aloqa</a>
                         </li>
                         <li>
-                            <a href="#">Narxlar</a>
+                            <a onclick="scrollToSection('prices')">Narxlar</a>
                         </li>
                     </ul>
                 </div>
@@ -156,24 +158,24 @@
                     </p>
                     <div class="footer_networking">
                         <div>
-                            <a href="#">
+                            <a href="https://www.facebook.com/people/Dilmurod-Xayrullayev/pfbid0cDbKqwr8kmu1WdmQ6amisyvF9y7C5JkTCrsZfpebc1p6JhALJZ5skGVR2gNQcjd6l/">
                                 <div class="footer_networking_box">
                                     <img src="./images/icons/facebook.svg" alt="Facebook">
                                 </div>
                             </a>
-                            <a href="#">
+                            <a href="https://youtube.com/@qaqnustour?si=zetqNwIkbKkzQqJm">
                                 <div class="footer_networking_box">
                                     <img src="./images/icons/youtube.svg" alt="YouTube">
                                 </div>
                             </a>
                         </div>
                         <div>
-                            <a href="#">
+                            <a href="https://t.me/DILMUROD040404">
                                 <div class="footer_networking_box">
                                     <img src="./images/icons/telegram.svg" alt="Telegram">
                                 </div>
                             </a>
-                            <a href="#">
+                            <a href="https://www.instagram.com/qaqnus_tour">
                                 <div class="footer_networking_box">
                                     <img src="./images/icons/instagram.svg" alt="Instagram">
                                 </div>
@@ -181,14 +183,16 @@
                         </div>
                     </div>
                     <div class="email">
-                        <div class="email_icon">
-                            <img src="./images/icons/email.svg" alt="Email">
-                        </div>
-                        <span>
-                            <a href="mailto: 123456789">
-                                123456789
-                            </a>
-                        </span>
+                        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=qaqnustour@gmail.com" style="font-size: 0.7em;">
+                            <div >
+                                <div class="email_icon">
+                                    <img src="./images/icons/email.svg" alt="Email">
+                                </div>
+                                <span>
+                                    qaqnustour@gmail.com
+                                </span>
+                            </div>
+                        </a>
                     </div>
                 </div>
                 <div class="footer_phone_number">
@@ -197,10 +201,10 @@
                     </p>
                     <ul>
                         <li>
-                            <p>+998 91 603 54 74</p>
+                            <p>+998 50 100 06 82</p>
                         </li>
                         <li>
-                            <p>+998 91 603 54 74</p>
+                            <p>+998 97 86 705 05</p>
                         </li>
                     </ul>
                     <a href="#">
@@ -221,6 +225,12 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         AOS.init();
+        function scrollToSection(id) {
+            let element = document.getElementById(id);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+            }
+        };
     </script>
 </body>
 

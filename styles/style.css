@@ -90,7 +90,6 @@ header a::before , footer ul a::before{
     bottom: -2px;
     transition: 0.3s;
 }
-
 header a:hover::before , footer ul a:hover::before{
     width: 100%;
 }

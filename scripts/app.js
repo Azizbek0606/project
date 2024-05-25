@@ -1,6 +1,4 @@
-import { about_card_content } from './data.js';
-import { data_banner } from './data.js';
-import { prices_card_data } from './data.js';
+import { about_card_content, data_banner, prices_card_data } from './data.js';
 
 let banner_wrapper = document.querySelector(".banner_wrapper");
 let banner_title = document.querySelector(".banner_title");
@@ -11,7 +9,7 @@ let menu_toggler = document.querySelectorAll(".menu_toggler");
 let nav_context = document.querySelector('#nav_context');
 
 for (let i = 0; i < menu_toggler.length; i++) {
-    menu_toggler[i].addEventListener("click", ()=>{
+    menu_toggler[i].addEventListener("click", () => {
         nav_context.classList.toggle("active_nav_context");
     });
 }
@@ -93,7 +91,7 @@ function createCard(data, parentElement, type = 'default') {
         if (type === 'default') {
             card = createDefaultCard(title, description, url, delay);
         } else if (type === 'prices') {
-            card = createPricesCard(title, description, url , delay);
+            card = createPricesCard(title, description, url, delay);
         }
 
         fragment.appendChild(card);
@@ -116,7 +114,7 @@ function createDefaultCard(title, description, url, delay) {
     return card;
 }
 
-function createPricesCard(title, description, url , delay) {
+function createPricesCard(title, description, url, delay) {
     const pricesCardWrapper = document.createElement('div');
     pricesCardWrapper.className = 'prices_card';
     pricesCardWrapper.setAttribute('data-aos', 'fade-up');
@@ -124,15 +122,14 @@ function createPricesCard(title, description, url , delay) {
     let img = createElement('div', 'prices_image', createImage(url));
     pricesCardWrapper.appendChild(img);
     const pricesCard = createElement('div', 'prices_card_content_block',
-            createElement('div', 'prices_title', createElement('h1', '', title)),
-            createElement('div', 'prices_content', createElement('p', '', description)),
-            createElement('div', 'prices_button', createElement('button', '', 'Batafsil'))
-        );
+        createElement('div', 'prices_title', createElement('h1', '', title)),
+        createElement('div', 'prices_content', createElement('p', '', description)),
+        createElement('div', 'prices_button', createElement('a', 'add_href_to_btn', createElement('button', '', 'Batafsil')))
+    );
 
     pricesCardWrapper.appendChild(pricesCard);
     return pricesCardWrapper;
 }
-
 function createElement(tag, className, ...children) {
     const element = document.createElement(tag);
     if (className) element.className = className;
@@ -163,3 +160,8 @@ document.querySelector(".footer_location_box").addEventListener("mouseover", () 
 document.querySelector(".footer_location_box").addEventListener("mouseleave", () => {
     document.querySelector(".loaction_icon_content_wrapper").style.transform = "translateY(-100%)";
 })
+
+let add_href_to_btn = document.querySelectorAll('.add_href_to_btn')
+for (let i = 0; i < add_href_to_btn.length; i++) {
+    add_href_to_btn[i].href = "https://t.me/DILMUROD040404";
+}
